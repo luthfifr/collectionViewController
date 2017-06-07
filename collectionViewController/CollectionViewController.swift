@@ -8,12 +8,12 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "PhotoCell"
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let fileManager = FileManager.default
-    let path = "/Users/LuthfiFR/Documents/bahan_buku_ios101/collectionViewController/collectionViewController/aset" //Bundle.main.resourcePath! + "/collectionViewController/collectionViewController/aset"
+    var path: String!
     var pathFiles = [String]()
     
     let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -21,16 +21,16 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title = "Camera Roll"
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        pathFiles = try! fileManager.contentsOfDirectory(atPath: path)
-        
-        //print(pathFiles)
+        pathFiles = try! fileManager.contentsOfDirectory(atPath: path!)
         
     }
 
@@ -39,15 +39,18 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         // Dispose of any resources that can be recreated.
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueImage" {
+            let destVC = segue.destination as! ViewController
+            let theCell = sender as! UICollectionViewCell
+            let indexPath = self.collectionView?.indexPath(for: theCell)
+            let currentItem = collectionView?.cellForItem(at: indexPath!) as! CollectionViewCell
+            destVC.selectedImage = currentItem.imageView
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -74,7 +77,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         } else if pathFiles[indexPath.item].contains("jpg") {
             oftype = "jpg"
         }
-        print("filename: \(pathFiles[indexPath.item]), oftype: \(oftype!)")
+        
         let fileName = pathFiles[indexPath.item].index(pathFiles[indexPath.item].endIndex, offsetBy: -((oftype?.characters.count)!+1))
         
         let imageBundle = Bundle.main.path(forResource: pathFiles[indexPath.item].substring(to: fileName), ofType: oftype!)
@@ -86,7 +89,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
 
     // MARK: UICollectionViewDelegate
-
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
