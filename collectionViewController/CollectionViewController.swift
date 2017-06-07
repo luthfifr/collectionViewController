@@ -10,10 +10,14 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CollectionViewController: UICollectionViewController {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let fileManager = FileManager.default
-    let path = Bundle.main.resourcePath!// + "aset"
+    let path = "/Users/LuthfiFR/Documents/bahan_buku_ios101/collectionViewController/collectionViewController/aset" //Bundle.main.resourcePath! + "/collectionViewController/collectionViewController/aset"
+    var pathFiles = [String]()
+    
+    let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    let itemsPerRow: CGFloat = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +28,9 @@ class CollectionViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        let pathFiles = try! fileManager.contentsOfDirectory(atPath: path)
-        let imageNames = pathFiles.contains(".jpeg")
-        print(imageNames)
+        pathFiles = try! fileManager.contentsOfDirectory(atPath: path)
+        
+        print(pathFiles)
         
     }
 
@@ -55,14 +59,15 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 11
+        return pathFiles.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        cell.contentView.frame.size.width = 100
-        cell.contentView.frame.size.height = 100
+        //cell.contentView.frame.size.width = 100
+        //cell.contentView.frame.size.height = 100
+        cell.backgroundColor = UIColor.black
         
         
     
@@ -99,5 +104,30 @@ class CollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //2
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    //3
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    // 4
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
 
 }
