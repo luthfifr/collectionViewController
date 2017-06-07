@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
 
+    let fileManager = FileManager.default
+    let path = Bundle.main.resourcePath!// + "aset"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +23,10 @@ class CollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        let pathFiles = try! fileManager.contentsOfDirectory(atPath: path)
+        let imageNames = pathFiles.contains(".jpeg")
+        print(imageNames)
         
     }
 
