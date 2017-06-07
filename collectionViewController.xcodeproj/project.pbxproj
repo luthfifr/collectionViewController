@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CF8B74431EE7D83F0019BE0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B74421EE7D83F0019BE0C /* AppDelegate.swift */; };
-		CF8B74451EE7D83F0019BE0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B74441EE7D83F0019BE0C /* ViewController.swift */; };
 		CF8B74481EE7D83F0019BE0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8B74461EE7D83F0019BE0C /* Main.storyboard */; };
 		CF8B744A1EE7D83F0019BE0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF8B74491EE7D83F0019BE0C /* Assets.xcassets */; };
 		CF8B744D1EE7D83F0019BE0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8B744B1EE7D83F0019BE0C /* LaunchScreen.storyboard */; };
 		CF8B74581EE7D83F0019BE0C /* collectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B74571EE7D83F0019BE0C /* collectionViewControllerTests.swift */; };
 		CF8B74631EE7D83F0019BE0C /* collectionViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B74621EE7D83F0019BE0C /* collectionViewControllerUITests.swift */; };
+		CF8B74731EE7D9400019BE0C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B74721EE7D9400019BE0C /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		CF8B743F1EE7D83E0019BE0C /* collectionViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = collectionViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8B74421EE7D83F0019BE0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF8B74441EE7D83F0019BE0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF8B74471EE7D83F0019BE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF8B74491EE7D83F0019BE0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF8B744C1EE7D83F0019BE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		CF8B745E1EE7D83F0019BE0C /* collectionViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = collectionViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8B74621EE7D83F0019BE0C /* collectionViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionViewControllerUITests.swift; sourceTree = "<group>"; };
 		CF8B74641EE7D83F0019BE0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF8B74721EE7D9400019BE0C /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				CF8B74421EE7D83F0019BE0C /* AppDelegate.swift */,
-				CF8B74441EE7D83F0019BE0C /* ViewController.swift */,
+				CF8B74721EE7D9400019BE0C /* CollectionViewController.swift */,
 				CF8B74461EE7D83F0019BE0C /* Main.storyboard */,
 				CF8B74491EE7D83F0019BE0C /* Assets.xcassets */,
 				CF8B744B1EE7D83F0019BE0C /* LaunchScreen.storyboard */,
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF8B74451EE7D83F0019BE0C /* ViewController.swift in Sources */,
+				CF8B74731EE7D9400019BE0C /* CollectionViewController.swift in Sources */,
 				CF8B74431EE7D83F0019BE0C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
