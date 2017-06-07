@@ -14,6 +14,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
 
     let fileManager = FileManager.default
     var path: String!
+    var judul: String!
     var pathFiles = [String]()
     
     let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -22,7 +23,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Camera Roll"
+        self.title = judul
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -89,19 +90,19 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
 
     // MARK: UICollectionViewDelegate
-    
+    /*
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
     
-    /*
+    
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-    */
+    
 
-    /*
+    
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true

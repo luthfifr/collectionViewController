@@ -43,12 +43,6 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             self.pathFiles.removeAll()
         }
         
-        for i in 0 ..< sections.count {
-            for j in 0 ..< sections[i].count {
-                print("sections[\(i)][\(j)] = \(sections[i][j])")
-            }
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,13 +60,13 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             
             let theSender = sender as! UIButton
             destVC.path = self.paths[theSender.tag]
+            destVC.judul = self.albums[theSender.tag]
         }
     }
     
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return sections.count
     }
     
@@ -82,13 +76,13 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         view.tag = indexPath.section
         view.label_header.text = albums[indexPath.section]
         view.label_header.sizeToFit()
+        view.label_header.tag = indexPath.section
         view.nextButton.tag = indexPath.section
         
         return view
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return sections[section].count
     }
     
