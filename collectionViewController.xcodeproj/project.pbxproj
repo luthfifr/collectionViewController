@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF3F0C8D1EE7FFC100001BE9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F0C8C1EE7FFC100001BE9 /* CollectionViewCell.swift */; };
+		CF3F0C921EE818D900001BE9 /* image12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF3F0C8E1EE818D900001BE9 /* image12.jpg */; };
+		CF3F0C931EE818D900001BE9 /* image13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF3F0C8F1EE818D900001BE9 /* image13.jpg */; };
+		CF3F0C941EE818D900001BE9 /* image14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF3F0C901EE818D900001BE9 /* image14.jpg */; };
+		CF3F0C951EE818D900001BE9 /* image15.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CF3F0C911EE818D900001BE9 /* image15.jpeg */; };
 		CF8B74431EE7D83F0019BE0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B74421EE7D83F0019BE0C /* AppDelegate.swift */; };
 		CF8B74481EE7D83F0019BE0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8B74461EE7D83F0019BE0C /* Main.storyboard */; };
 		CF8B744A1EE7D83F0019BE0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF8B74491EE7D83F0019BE0C /* Assets.xcassets */; };
@@ -45,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF3F0C8C1EE7FFC100001BE9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CF3F0C8E1EE818D900001BE9 /* image12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image12.jpg; sourceTree = "<group>"; };
+		CF3F0C8F1EE818D900001BE9 /* image13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image13.jpg; sourceTree = "<group>"; };
+		CF3F0C901EE818D900001BE9 /* image14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image14.jpg; sourceTree = "<group>"; };
+		CF3F0C911EE818D900001BE9 /* image15.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image15.jpeg; sourceTree = "<group>"; };
 		CF8B743F1EE7D83E0019BE0C /* collectionViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = collectionViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8B74421EE7D83F0019BE0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8B74471EE7D83F0019BE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +132,7 @@
 				CF8B748B1EE7EE2E0019BE0C /* aset */,
 				CF8B74421EE7D83F0019BE0C /* AppDelegate.swift */,
 				CF8B74721EE7D9400019BE0C /* CollectionViewController.swift */,
+				CF3F0C8C1EE7FFC100001BE9 /* CollectionViewCell.swift */,
 				CF8B74461EE7D83F0019BE0C /* Main.storyboard */,
 				CF8B74491EE7D83F0019BE0C /* Assets.xcassets */,
 				CF8B744B1EE7D83F0019BE0C /* LaunchScreen.storyboard */,
@@ -151,6 +162,10 @@
 		CF8B748B1EE7EE2E0019BE0C /* aset */ = {
 			isa = PBXGroup;
 			children = (
+				CF3F0C8E1EE818D900001BE9 /* image12.jpg */,
+				CF3F0C8F1EE818D900001BE9 /* image13.jpg */,
+				CF3F0C901EE818D900001BE9 /* image14.jpg */,
+				CF3F0C911EE818D900001BE9 /* image15.jpeg */,
 				CF8B748C1EE7EE2E0019BE0C /* image1.jpeg */,
 				CF8B748D1EE7EE2E0019BE0C /* image10.jpeg */,
 				CF8B748E1EE7EE2E0019BE0C /* image11.jpg */,
@@ -277,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF8B744D1EE7D83F0019BE0C /* LaunchScreen.storyboard in Resources */,
+				CF3F0C931EE818D900001BE9 /* image13.jpg in Resources */,
 				CF8B749D1EE7EE2E0019BE0C /* image5.jpg in Resources */,
 				CF8B749E1EE7EE2E0019BE0C /* image6.jpg in Resources */,
 				CF8B749A1EE7EE2E0019BE0C /* image2.jpeg in Resources */,
@@ -287,8 +303,11 @@
 				CF8B749B1EE7EE2E0019BE0C /* image3.jpeg in Resources */,
 				CF8B74A01EE7EE2E0019BE0C /* image8.jpg in Resources */,
 				CF8B74971EE7EE2E0019BE0C /* image1.jpeg in Resources */,
+				CF3F0C921EE818D900001BE9 /* image12.jpg in Resources */,
 				CF8B74991EE7EE2E0019BE0C /* image11.jpg in Resources */,
 				CF8B749F1EE7EE2E0019BE0C /* image7.jpg in Resources */,
+				CF3F0C951EE818D900001BE9 /* image15.jpeg in Resources */,
+				CF3F0C941EE818D900001BE9 /* image14.jpg in Resources */,
 				CF8B74A11EE7EE2E0019BE0C /* image9.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +335,7 @@
 			files = (
 				CF8B74731EE7D9400019BE0C /* CollectionViewController.swift in Sources */,
 				CF8B74431EE7D83F0019BE0C /* AppDelegate.swift in Sources */,
+				CF3F0C8D1EE7FFC100001BE9 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

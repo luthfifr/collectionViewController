@@ -26,11 +26,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         pathFiles = try! fileManager.contentsOfDirectory(atPath: path)
         
-        print(pathFiles)
+        //print(pathFiles)
         
     }
 
@@ -63,14 +63,25 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
     
-        //cell.contentView.frame.size.width = 100
-        //cell.contentView.frame.size.height = 100
         cell.backgroundColor = UIColor.black
         
+        var oftype: String?
         
-    
+        if pathFiles[indexPath.item].contains("jpeg") {
+            oftype = "jpeg"
+        } else if pathFiles[indexPath.item].contains("jpg") {
+            oftype = "jpg"
+        }
+        print("filename: \(pathFiles[indexPath.item]), oftype: \(oftype!)")
+        let fileName = pathFiles[indexPath.item].index(pathFiles[indexPath.item].endIndex, offsetBy: -((oftype?.characters.count)!+1))
+        
+        let imageBundle = Bundle.main.path(forResource: pathFiles[indexPath.item].substring(to: fileName), ofType: oftype!)
+        
+        cell.imageView.image = UIImage(contentsOfFile: imageBundle!)
+        cell.imageView.contentMode = .scaleAspectFill
+        
         return cell
     }
 
@@ -105,10 +116,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     */
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //2
+    // MARK: UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
@@ -116,17 +126,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
-    //3
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
     
-    // 4
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
 
