@@ -72,7 +72,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
         cell.backgroundColor = UIColor.black
         
-        print("\(folderName!)/\(pathFiles[indexPath.item])")
         cell.imageView.image = UIImage(named: "\(folderName!)/\(pathFiles[indexPath.item])")
         cell.imageView.contentMode = .scaleAspectFill
         
