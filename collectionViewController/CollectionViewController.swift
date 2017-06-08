@@ -13,6 +13,7 @@ private let reuseIdentifier = "PhotoCell"
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let fileManager = FileManager.default
+    var folderName: String!
     var path: String!
     var judul: String!
     var pathFiles = [String]()
@@ -71,19 +72,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
         cell.backgroundColor = UIColor.black
         
-        var oftype: String?
-        
-        if pathFiles[indexPath.item].contains("jpeg") {
-            oftype = "jpeg"
-        } else if pathFiles[indexPath.item].contains("jpg") {
-            oftype = "jpg"
-        }
-        
-        let fileName = pathFiles[indexPath.item].index(pathFiles[indexPath.item].endIndex, offsetBy: -((oftype?.characters.count)!+1))
-        
-        let imageBundle = Bundle.main.path(forResource: pathFiles[indexPath.item].substring(to: fileName), ofType: oftype!)
-        
-        cell.imageView.image = UIImage(contentsOfFile: imageBundle!)
+        print("\(folderName!)/\(pathFiles[indexPath.item])")
+        cell.imageView.image = UIImage(named: "\(folderName!)/\(pathFiles[indexPath.item])")
         cell.imageView.contentMode = .scaleAspectFill
         
         return cell

@@ -14,11 +14,12 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     var sections = [[String]]()
     let fileManager = FileManager.default
-    let path = "/Users/LuthfiFR/Documents/bahan_buku_ios101/collectionViewController/collectionViewController/aset" //Bundle.main.resourcePath! + "/collectionViewController/collectionViewController/aset"
-    let path2 = "/Users/LuthfiFR/Documents/bahan_buku_ios101/collectionViewController/collectionViewController/aset2"
+    let path = Bundle.main.resourcePath! + "/aset"
+    let path2 = Bundle.main.resourcePath! + "/aset2"
     var paths = [String]()
     var pathFiles = [String]()
     var albums = [String]()
+    var folderNames = [String]()
     
     let sectionInsets = UIEdgeInsets(top: 25.0, left: 10.0, bottom: 25.0, right: 10.0)
     let itemsPerRow: CGFloat = 6
@@ -27,12 +28,13 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "Albums"
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        folderNames = ["aset", "aset2"]
         paths = [path, path2]
         
         albums = ["Miscellaneous 1", "Miscellaneous 2"]
@@ -42,7 +44,6 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             self.sections.append(self.pathFiles)
             self.pathFiles.removeAll()
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +62,7 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             let theSender = sender as! UIButton
             destVC.path = self.paths[theSender.tag]
             destVC.judul = self.albums[theSender.tag]
+            destVC.folderName = self.folderNames[theSender.tag]
         }
     }
     
@@ -91,19 +93,7 @@ class AlbumVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         cell.backgroundColor = UIColor.black
         
-        var oftype: String?
-        
-        if sections[indexPath.section][indexPath.item].contains("jpeg") {
-            oftype = "jpeg"
-        } else if sections[indexPath.section][indexPath.item].contains("jpg") {
-            oftype = "jpg"
-        }
-        
-        let fileName = sections[indexPath.section][indexPath.item].index(sections[indexPath.section][indexPath.item].endIndex, offsetBy: -((oftype?.characters.count)!+1))
-        
-        let imageBundle = Bundle.main.path(forResource: sections[indexPath.section][indexPath.item].substring(to: fileName), ofType: oftype!)
-        
-        cell.imageView.image = UIImage(contentsOfFile: imageBundle!)
+        cell.imageView.image = UIImage(named: "\(String(describing: self.folderNames[indexPath.section]))/\(sections[indexPath.section][indexPath.item])")
         cell.imageView.contentMode = .scaleAspectFill
         
         return cell
