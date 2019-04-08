@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         view.backgroundColor = UIColor.black
         
         imageView.image = (selectedImage?.image)!
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         
         scrollView.delegate = self
         setZoomScale()
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.zoomScale = 1.0
     }
     
-    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
+    @objc func handleDoubleTap(recognizer: UITapGestureRecognizer) {
         if (scrollView.zoomScale > scrollView.minimumZoomScale) {
             scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
         } else {
@@ -78,7 +78,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer: UITapGestureRecognizer) {
         self.navigationController?.navigationBar.isHidden = !(self.navigationController?.navigationBar.isHidden)!
     }
 }
